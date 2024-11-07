@@ -117,47 +117,58 @@ class MainAppState extends State<MainApp> {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              BooleanSwitch(
-                label: 'Boolean Value',
-                currentValue: myBool,
-                onToggle: toggleBoolean,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BooleanSwitch(
+                        label: 'Boolean Value',
+                        currentValue: myBool,
+                        onToggle: toggleBoolean,
+                      ),
+                      const SizedBox(height: 20),
+                      ValueInputField(
+                        controller: stringController,
+                        label: 'Enter String Value',
+                        savedValue: myString,
+                        onSave: saveString,
+                      ),
+                      const SizedBox(height: 20),
+                      ValueInputField(
+                        controller: intController,
+                        label: 'Enter Integer Value',
+                        savedValue: myInt.toString(),
+                        onSave: saveInteger,
+                        isNumeric: true,
+                      ),
+                      const SizedBox(height: 20),
+                      ListInputField(
+                        title: 'String List',
+                        controller: stringListController,
+                        listItems: myStringList,
+                        onAdd: addToStringList,
+                      ),
+                      const SizedBox(height: 20),
+                      ListInputField(
+                        title: 'Integer List',
+                        controller: intListController,
+                        listItems: myIntList.map((e) => e.toString()).toList(),
+                        onAdd: addToIntList,
+                        isNumeric: true,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              const SizedBox(height: 20),
-              ValueInputField(
-                controller: stringController,
-                label: 'Enter String Value',
-                savedValue: myString,
-                onSave: saveString,
-              ),
-              const SizedBox(height: 20),
-              ValueInputField(
-                controller: intController,
-                label: 'Enter Integer Value',
-                savedValue: myInt.toString(),
-                onSave: saveInteger,
-                isNumeric: true,
-              ),
-              const SizedBox(height: 20),
-              ListInputField(
-                title: 'String List',
-                controller: stringListController,
-                listItems: myStringList,
-                onAdd: addToStringList,
-              ),
-              const SizedBox(height: 20),
-              ListInputField(
-                title: 'Integer List',
-                controller: intListController,
-                listItems: myIntList.map((e) => e.toString()).toList(),
-                onAdd: addToIntList,
-                isNumeric: true,
-              ),
-              const Spacer(),
               Center(
-                child: ClearButton(
-                  onPressed: clearPreferences,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24.0),
+                  child: ClearButton(
+                    onPressed: clearPreferences,
+                  ),
                 ),
               ),
             ],
