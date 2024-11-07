@@ -119,49 +119,47 @@ class MainAppState extends State<MainApp> {
           padding: const EdgeInsets.all(16.0),
           child: Stack(
             children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BooleanSwitch(
-                        label: 'Boolean Value',
-                        currentValue: myBool,
-                        onToggle: toggleBoolean,
-                      ),
-                      const SizedBox(height: 24),
-                      ValueInputField(
-                        controller: stringController,
-                        label: 'Enter String Value',
-                        savedValue: myString,
-                        onSave: saveString,
-                      ),
-                      const SizedBox(height: 24),
-                      ValueInputField(
-                        controller: intController,
-                        label: 'Enter Integer Value',
-                        savedValue: myInt.toString(),
-                        onSave: saveInteger,
-                        isNumeric: true,
-                      ),
-                      const SizedBox(height: 24),
-                      ListInputField(
-                        title: 'String List',
-                        controller: stringListController,
-                        listItems: myStringList,
-                        onAdd: addToStringList,
-                      ),
-                      const SizedBox(height: 24),
-                      ListInputField(
-                        title: 'Integer List',
-                        controller: intListController,
-                        listItems: myIntList.map((e) => e.toString()).toList(),
-                        onAdd: addToIntList,
-                        isNumeric: true,
-                      ),
-                      const SizedBox(height: 96),
-                    ],
-                  ),
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BooleanSwitch(
+                      label: 'Boolean Value',
+                      currentValue: myBool,
+                      onToggle: toggleBoolean,
+                    ),
+                    const SizedBox(height: 24),
+                    ValueInputField(
+                      controller: stringController,
+                      label: 'Enter String Value',
+                      savedValue: myString,
+                      onSave: saveString,
+                    ),
+                    const SizedBox(height: 24),
+                    ValueInputField(
+                      controller: intController,
+                      label: 'Enter Integer Value',
+                      savedValue: myInt.toString(),
+                      onSave: saveInteger,
+                      isNumeric: true,
+                    ),
+                    const SizedBox(height: 24),
+                    ListInputField(
+                      title: 'String List',
+                      controller: stringListController,
+                      listItems: myStringList,
+                      onAdd: addToStringList,
+                    ),
+                    const SizedBox(height: 24),
+                    ListInputField(
+                      title: 'Integer List',
+                      controller: intListController,
+                      listItems: myIntList.map((e) => e.toString()).toList(),
+                      onAdd: addToIntList,
+                      isNumeric: true,
+                    ),
+                    const SizedBox(height: 96),
+                  ],
                 ),
               ),
               Align(
@@ -307,16 +305,18 @@ class ListInputField extends StatelessWidget {
         if (listItems.isNotEmpty)
           Wrap(
             children: listItems
-                .map((item) => Padding(
-                      padding: const EdgeInsets.all(2),
-                      child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.teal),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Text(item)),
-                    ))
+                .map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: Container(
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.teal),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text(item)),
+                  ),
+                )
                 .toList(),
           ),
       ],
@@ -334,7 +334,7 @@ class SaveButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.tealAccent.shade700,
+        backgroundColor: Colors.teal,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
