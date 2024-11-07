@@ -106,6 +106,7 @@ class MainAppState extends State<MainApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
+          elevation: 4,
           title: const Text('Preferences Demo'),
           actions: [
             IconButton(
