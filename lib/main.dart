@@ -116,8 +116,7 @@ class MainAppState extends State<MainApp> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Stack(
             children: [
               Expanded(
                 child: SingleChildScrollView(
@@ -129,14 +128,14 @@ class MainAppState extends State<MainApp> {
                         currentValue: myBool,
                         onToggle: toggleBoolean,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
                       ValueInputField(
                         controller: stringController,
                         label: 'Enter String Value',
                         savedValue: myString,
                         onSave: saveString,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
                       ValueInputField(
                         controller: intController,
                         label: 'Enter Integer Value',
@@ -144,14 +143,14 @@ class MainAppState extends State<MainApp> {
                         onSave: saveInteger,
                         isNumeric: true,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
                       ListInputField(
                         title: 'String List',
                         controller: stringListController,
                         listItems: myStringList,
                         onAdd: addToStringList,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
                       ListInputField(
                         title: 'Integer List',
                         controller: intListController,
@@ -159,11 +158,13 @@ class MainAppState extends State<MainApp> {
                         onAdd: addToIntList,
                         isNumeric: true,
                       ),
+                      const SizedBox(height: 96),
                     ],
                   ),
                 ),
               ),
-              Center(
+              Align(
+                alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 24.0),
                   child: ClearButton(
