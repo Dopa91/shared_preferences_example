@@ -183,11 +183,11 @@ class BooleanSwitch extends StatelessWidget {
   final VoidCallback onToggle;
 
   const BooleanSwitch({
-    Key? key,
+    super.key,
     required this.label,
     required this.currentValue,
     required this.onToggle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -208,13 +208,13 @@ class ValueInputField extends StatelessWidget {
   final bool isNumeric;
 
   const ValueInputField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.label,
     required this.savedValue,
     required this.onSave,
     this.isNumeric = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -253,13 +253,13 @@ class ListInputField extends StatelessWidget {
   final bool isNumeric;
 
   const ListInputField({
-    Key? key,
+    super.key,
     required this.title,
     required this.controller,
     required this.listItems,
     required this.onAdd,
     this.isNumeric = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -310,7 +310,7 @@ class ListInputField extends StatelessWidget {
 class SaveButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const SaveButton({Key? key, required this.onPressed}) : super(key: key);
+  const SaveButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -329,7 +329,7 @@ class SaveButton extends StatelessWidget {
 class AddButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const AddButton({Key? key, required this.onPressed}) : super(key: key);
+  const AddButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -348,7 +348,7 @@ class AddButton extends StatelessWidget {
 class ClearButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const ClearButton({Key? key, required this.onPressed}) : super(key: key);
+  const ClearButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
