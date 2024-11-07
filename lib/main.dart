@@ -304,22 +304,19 @@ class ListInputField extends StatelessWidget {
         if (listItems.isEmpty)
           const Text('No items added', style: TextStyle(color: Colors.grey)),
         if (listItems.isNotEmpty)
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: listItems
-                  .map((item) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2),
-                        child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.teal),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Text(item)),
-                      ))
-                  .toList(),
-            ),
+          Wrap(
+            children: listItems
+                .map((item) => Padding(
+                      padding: const EdgeInsets.all(2),
+                      child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.teal),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Text(item)),
+                    ))
+                .toList(),
           ),
       ],
     );
